@@ -29,10 +29,11 @@
 
     <div ng-controller="ctrl">
       <ul id="masonrymenu">
-        <li ng-repeat="jsontag in jsontags">{{jsontag._content}}</li>
+        <li><a data-filter=".test">Test</a></li>
+        <li><a data-filter=".student">Student</a></li>
       </ul>
       <ul id="container" masonry>
-        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick">
+        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick {{jsonitem.tags}}">
           <h2>{{jsonitem.title}}</h2>
           <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
         </li>
@@ -40,11 +41,12 @@
       <hr>
       Items
       <pre>
-        {{jsonimage | json}}
-      </pre>
-      <pre>
         {{jsonitems | json}}
       </pre>
+      <pre>
+        {{jsonimage | json}}
+      </pre>
+
     </div>
 
   </div>
@@ -64,11 +66,13 @@
   <script src="bower_components/outlayer/outlayer.js"></script>
   <script src="bower_components/imagesloaded/imagesloaded.js"></script>
   <script src="bower_components/masonry/masonry.js"></script>
+  <script src="bower_components/isotope/isotope.js"></script>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+  <script src="bower_components/angular-isotope/angular-isotope.js"></script>
 
 
   <script src="app.js"></script>

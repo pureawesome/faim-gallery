@@ -21,7 +21,7 @@
     "doc-ready": "*",
     "eventie": "*",
     "jquery-bridget":"*",
-    "imagesloaded": "*"
-
+    "imagesloaded": "*",
+    "angular-isotope": "*"
   }
 }
