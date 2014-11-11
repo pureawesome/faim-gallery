@@ -16,12 +16,12 @@ flickrServices.factory('Images', ['$resource',
 
 
 flickrServices.factory('JsonService', function($resource) {
-  return $resource('https://api.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=2a198ad2956ba79b426a5d27887d2374&format=json&nojsoncallback=1&auth_token=72157648855300076-7b5658a8e3e32f56&api_sig=031807402c10968da94ec317aa3e9212'
+  return $resource('https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=df540b08597fa735a4a2cad5a3a3fab8&user_id=40947201%40N07&format=json&nojsoncallback=1&auth_token=72157649235852531-77c1e6ce8c9b7051&api_sig=e9161f86f55c76523d4be87eb12e9a6e'
   );
 });
 
 flickrServices.factory('JsonImage', function($resource){
-  return $resource('https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=df540b08597fa735a4a2cad5a3a3fab8&photo_id=15319605531&format=json&nojsoncallback=1&auth_token=72157649235852531-77c1e6ce8c9b7051&api_sig=ced47279f04578d76246e2744e22b1b3',
+  return $resource('https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=df540b08597fa735a4a2cad5a3a3fab8&photo_id=15319605531&format=json&nojsoncallback=1&auth_token=72157649235852531-77c1e6ce8c9b7051&api_sig=ced47279f04578d76246e2744e22b1b3'
   //{},
   //{
   //  query: {method:'GET', params:{photoId:'15319605531'}, isArray:false}

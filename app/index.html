@@ -24,29 +24,27 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view>
+  <div>
+    <div>Angular seed app: v<span app-version></span></div>
 
+    <div ng-controller="ctrl">
+      <ul id="container">
+        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick">
+          {{jsonitem.title}}
+          <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
+        </li>
+      </ul>
+      <hr />
+      Items
+      <pre>
+        {{jsonimage | json}}
+      </pre>
+      <pre>
+        {{jsonitems | json}}
+      </pre>
+    </div>
 
   </div>
-
-  <div>Angular seed app: v<span app-version></span></div>
-
-<div ng-controller="ctrl">
-<!--	<pre>
-  {{jsonitems | json}}
-</pre>
--->
-  <ul id="container">
-    <li ng-repeat="jsonitem in jsonitems" class="masonry-brick">
-      {{jsonitem.title}}
-      <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
-    </li>
-  </ul>
-<hr />
-Items
-
-
-</div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
@@ -54,10 +52,10 @@ Items
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/masonry/masonry.js"></script>
+<!--  <script src="bower_components/masonry/masonry.js"></script>
   <script src="bower_components/imagesloaded/imagesloaded.js"></script>
   <script src="bower_components/angular-images-loaded/angular-images-loaded.js"></script>
-  <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+  <script src="bower_components/angular-masonry/angular-masonry.js"></script> -->
   <script src="app.js"></script>
   <script src="view1/view1.js"></script>
   <script src="view2/view2.js"></script>

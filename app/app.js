@@ -32,10 +32,10 @@ flickrControllers.controller('ctrl', ['$scope', 'JsonService', 'JsonImage',
         $scope.jsonitems = data.photos.photo;
     });
 //    $scope.flickrlist = $scope.jsonitems.photos;
-    $scope.jsonimage = JsonImage.get();
+    $scope.jsonimage = JsonImage.query();
   }
 
-  
+
 
 
   //JsonService.get(function(data){
