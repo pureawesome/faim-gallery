@@ -7,8 +7,8 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   'flickrControllers',
-  'flickrServices'
- // 'wu.masonry'
+  'flickrServices',
+  'wu.masonry'
 ]);
 //.
 //config(['$routeProvider', function($routeProvider) {
@@ -30,9 +30,10 @@ flickrControllers.controller('ctrl', ['$scope', 'JsonService', 'JsonImage',
   function($scope, JsonService, JsonImage) {
      JsonService.get(function(data){
         $scope.jsonitems = data.photos.photo;
+        $scope.jsontags = data.photos.photo.tags.tag;
     });
 //    $scope.flickrlist = $scope.jsonitems.photos;
-    $scope.jsonimage = JsonImage.query();
+    $scope.jsonimage = JsonImage.get();
   }
 
 

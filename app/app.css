@@ -28,3 +28,15 @@
   content: "";
   padding: 0;
 }
+ul, li {list-style:none; padding:0; margin:0;}
+li {width:auto;}
+li h2 {position:absolute; width:100%; text-align:center;}
+
+.masonry-brick {
+  margin: 1em;
+  display: none;
+}
+
+.masonry-brick.loaded {
+  display: block;
+}

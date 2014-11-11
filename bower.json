@@ -1,5 +1,5 @@
 {
-  "name": "angular-seed",
+  "name": "Flickr Angular Masonry",
   "description": "A starter project for AngularJS",
   "version": "0.0.0",
   "homepage": "https://github.com/angular/angular-seed",
@@ -17,6 +17,11 @@
     "bootstrap": "~3.1.1",
     "masonry": "3.x",
     "angular-masonry": "*",
-    "angular-images-loaded": "*"
+    "outlayer": "*",
+    "doc-ready": "*",
+    "eventie": "*",
+    "jquery-bridget":"*",
+    "imagesloaded": "*"
+
   }
 }
