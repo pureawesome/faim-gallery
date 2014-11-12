@@ -36,6 +36,24 @@ flickrControllers.controller('ctrl', ['$scope', 'JsonService', 'JsonImage',
     $scope.jsonimage = JsonImage.get();
   }
 
+myApp.config(['$routeProvider',
+  function($routeProvider){
+    $routeProvider.
+      when('/:photosetId', {
+        templateUrl: 'views/photoset.html',
+        controller: 'PhotosetCtrl'
+      }).
+      when('/:photosetId/:photoId', {
+        templateUrl: 'views/photo.html',
+        controller: 'PhotoCtrl'
+      }).
+      otherwise({
+        redirectTo:'index.html'
+      });
+    }
+]);
+
+
 
 
 
