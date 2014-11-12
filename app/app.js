@@ -9,7 +9,29 @@ angular.module('myApp', [
   'flickrControllers',
   'flickrServices',
   'wu.masonry'
+])
+.config(['$routeProvider',
+  function($routeProvider){
+    $routeProvider.
+      when('/', {
+        templateUrl: 'views/index.html',
+        controller: 'ctrl'
+      }).
+      when('/:photosetId', {
+        templateUrl: 'views/photoset.html',
+        controller: 'ctrl'
+      }).
+      when('/:photosetId/:photoId', {
+        templateUrl: 'views/photo.html',
+        controller: 'PhotoCtrl'
+      }).
+      otherwise({
+        redirectTo:'/'
+      });
+    }
 ]);
+
+
 //.
 //config(['$routeProvider', function($routeProvider) {
 //  $routeProvider.otherwise({redirectTo: '/view1'});
@@ -26,32 +48,23 @@ flickrControllers.controller('FlickrGetCtrl', ['$scope', 'Images',
 
   }]);
 
-flickrControllers.controller('ctrl', ['$scope', 'JsonService', 'JsonImage',
-  function($scope, JsonService, JsonImage) {
+flickrControllers.controller('ctrl', ['$scope', 'JsonService',
+  function($scope, JsonService) {
      JsonService.get(function(data){
         $scope.jsonitems = data.photos.photo;
 
     });
 //    $scope.flickrlist = $scope.jsonitems.photos;
-    $scope.jsonimage = JsonImage.get();
-  }
+//    $scope.jsonimage = JsonImage.get();
+  }]);
 
-myApp.config(['$routeProvider',
-  function($routeProvider){
-    $routeProvider.
-      when('/:photosetId', {
-        templateUrl: 'views/photoset.html',
-        controller: 'PhotosetCtrl'
-      }).
-      when('/:photosetId/:photoId', {
-        templateUrl: 'views/photo.html',
-        controller: 'PhotoCtrl'
-      }).
-      otherwise({
-        redirectTo:'index.html'
-      });
-    }
-]);
+flickrControllers.controller('PhotoCtrl', ['$scope', 'JsonImage',
+  function($scope, JsonImage) {
+     JsonImage.get(function(data){
+    //    $scope.jsonitem = data.photo;
+    });
+  }]);
+
 
 
 
@@ -61,8 +74,3 @@ myApp.config(['$routeProvider',
   //  $scope.name = data.name;
   //  $scope.children = data.children;
   //});
-
-
-
-
-]);

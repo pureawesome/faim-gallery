@@ -24,23 +24,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div>
-    <div>Angular seed app: v<span app-version></span></div>
-
-    <div ng-controller="ctrl">
-      <ul opt-kind ok-key="filter">
-        <li><button type="button" ok-sel="*">All</button></li>
-        <li><button type="button" ok-sel=".test">Test</button></li>
-        <li><button type="button" ok-sel=".student">Student</button></li>
-      </ul>
-      <ul id="container" masonry isotope-container>
-        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick {{jsonitem.tags}}" isotope-item>
-          <h2>{{jsonitem.title}}</h2>
-          <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
-        </li>
-      </ul>
-
-    </div>
+  <div ng-view>
 
   </div>
   <!-- In production use:
