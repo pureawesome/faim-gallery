@@ -28,24 +28,17 @@
     <div>Angular seed app: v<span app-version></span></div>
 
     <div ng-controller="ctrl">
-      <ul id="masonrymenu">
-        <li><a data-filter=".test">Test</a></li>
-        <li><a data-filter=".student">Student</a></li>
+      <ul opt-kind ok-key="filter">
+        <li><button type="button" ok-sel="*">All</button></li>
+        <li><button type="button" ok-sel=".test">Test</button></li>
+        <li><button type="button" ok-sel=".student">Student</button></li>
       </ul>
-      <ul id="container" masonry>
-        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick {{jsonitem.tags}}">
+      <ul id="container" masonry isotope-container>
+        <li ng-repeat="jsonitem in jsonitems" class="masonry-brick {{jsonitem.tags}}" isotope-item>
           <h2>{{jsonitem.title}}</h2>
           <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
         </li>
       </ul>
-      <hr>
-      Items
-      <pre>
-        {{jsonitems | json}}
-      </pre>
-      <pre>
-        {{jsonimage | json}}
-      </pre>
 
     </div>
 
@@ -58,7 +51,7 @@
   <script src="bower_components/jquery-bridget/jquery.bridget.js"></script>
   <script src="bower_components/get-style-property/get-style-property.js"></script>
   <script src="bower_components/get-size/get-size.js"></script>
-  <script src="bower_components/eventEmitter/EventEmitter.js"></script> -->
+  <script src="bower_components/eventEmitter/EventEmitter.js"></script>
   <script src="bower_components/eventie/eventie.js"></script>
   <script src="bower_components/doc-ready/doc-ready.js"></script>
   <script src="bower_components/matches-selector/matches-selector.js"></script>
@@ -66,13 +59,13 @@
   <script src="bower_components/outlayer/outlayer.js"></script>
   <script src="bower_components/imagesloaded/imagesloaded.js"></script>
   <script src="bower_components/masonry/masonry.js"></script>
-  <script src="bower_components/isotope/isotope.js"></script>
+  <script src="bower_components/isotope/jquery.isotope.js"></script>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-masonry/angular-masonry.js"></script>
-  <script src="bower_components/angular-isotope/angular-isotope.js"></script>
+  <script src="bower_components/angular-isotope/dist/angular-isotope.js"></script>
 
 
   <script src="app.js"></script>

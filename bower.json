@@ -22,6 +22,7 @@
     "eventie": "*",
     "jquery-bridget":"*",
     "imagesloaded": "*",
+    "isotope": "*",
     "angular-isotope": "*"
   }
 }
