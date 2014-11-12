@@ -15,11 +15,11 @@ angular.module('myApp', [
     $routeProvider.
       when('/', {
         templateUrl: 'views/index.html',
-        controller: 'ctrl'
+        controller: 'MainCtrl'
       }).
       when('/:photosetId', {
         templateUrl: 'views/photoset.html',
-        controller: 'ctrl'
+        controller: 'PhotosetCtrl'
       }).
       when('/:photosetId/:photoId', {
         templateUrl: 'views/photo.html',
@@ -48,7 +48,7 @@ flickrControllers.controller('FlickrGetCtrl', ['$scope', 'Images',
 
   }]);
 
-flickrControllers.controller('ctrl', ['$scope', 'JsonService',
+flickrControllers.controller('MainCtrl', ['$scope', 'JsonService',
   function($scope, JsonService) {
      JsonService.get(function(data){
         $scope.jsonitems = data.photos.photo;
@@ -65,6 +65,12 @@ flickrControllers.controller('PhotoCtrl', ['$scope', 'JsonImage',
     });
   }]);
 
+flickrControllers.controller('PhotosetCtrl', ['$scope', 'JsonImage',
+  function($scope, JsonImage) {
+     JsonImage.get(function(data){
+    //    $scope.jsonitem = data.photo;
+    });
+  }]);
 
 
 

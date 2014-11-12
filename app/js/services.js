@@ -16,7 +16,7 @@ flickrServices.factory('Images', ['$resource',
 
 //flcikr call flickr.people.getPhotos with tags
 flickrServices.factory('JsonService', function($resource) {
-  return $resource('https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=df540b08597fa735a4a2cad5a3a3fab8&user_id=40947201%40N07&extras=tags&format=json&nojsoncallback=1&auth_token=72157649235852531-77c1e6ce8c9b7051&api_sig=e185368a559724b8be9cd7735bd43641'
+  return $resource('https://api.flickr.com/services/rest/?method=flickr.people.getPhotos&api_key=071da634edc308bd47cc06715f12e139&user_id=40947201%40N07&extras=tags&format=json&nojsoncallback=1'
   );
 });
 
