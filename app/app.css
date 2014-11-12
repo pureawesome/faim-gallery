@@ -30,7 +30,7 @@
 }
 ul, li {list-style:none; padding:0; margin:0;}
 li {width:auto;}
-li h2 {position:absolute; width:100%; text-align:center;display:none;}
+li h2 {position:absolute; width:100%; text-align:center;display:none;color:red;}
 li:hover h2 {display:block;}
 
 .masonry-brick {
