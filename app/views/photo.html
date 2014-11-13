@@ -1,2 +1,15 @@
-<p>This is the partial for view 1.</p>
-{{images}}
+<p>Photo View</p>
+{{photo.title._content}}<br />
+{{photo.description._content}}<br />
+<a href="{{photo.urls.url[0]._content}}">View on Flickr for more sizes</a>
+<ul>
+  <li ng-repeat="tag in photo.tags.tag">{{tag._content}}</li>
+</ul>
+<br />
+<img ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_c.jpg" />
+
+
+
+<pre>
+  {{photo | json}}
+</pre>

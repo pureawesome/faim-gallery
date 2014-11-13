@@ -20,13 +20,30 @@ flickrServices.factory('JsonService', function($resource) {
   );
 });
 
-flickrServices.factory('JsonImage', function($resource){
-  return $resource('https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=df540b08597fa735a4a2cad5a3a3fab8&photo_id=15319605531&format=json&nojsoncallback=1&auth_token=72157649235852531-77c1e6ce8c9b7051&api_sig=ced47279f04578d76246e2744e22b1b3'
-  //{},
-  //{
-  //  query: {method:'GET', params:{photoId:'15319605531'}, isArray:false}
-  //}
-  );
+flickrServices.factory('JsonImage', ['$resource', function($resource){
+    return $resource(
+      'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=071da634edc308bd47cc06715f12e139&photo_id=:photoId&format=json&nojsoncallback=1',
+      {
+        photoId: '@photoId'
+      },
+      {
+        query: {method:'GET',
+        isArray:false}
+      }
+    );
+}]);
+
+flickrServices.factory('JsonSet', function($resource){
+    return $resource(
+      'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=071da634edc308bd47cc06715f12e139&photoset_id=:photosetId&format=json&nojsoncallback=1',
+      {
+        photoId: '@photosetId'
+      },
+      {
+        query: {method:'GET',
+        isArray:false}
+      }
+    );
 });
 
 

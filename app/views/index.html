@@ -4,15 +4,17 @@
     <li><button type="button" ok-sel=".test">Test</button></li>
     <li><button type="button" ok-sel=".student">Student</button></li>
   </ul>
-  <ul id="container" masonry>
-    <li ng-repeat="jsonitem in jsonitems" class="masonry-brick {{jsonitem.tags}}" isotope-item>
+  <ul id="container" masonry isotope-container>
+    <li ng-repeat="photo in photos" class="masonry-brick {{photo.tags}}" isotope-item>
       <h2>{{jsonitem.title}}</h2>
-      <img ng-src="https://farm{{jsonitem.farm}}.staticflickr.com/{{jsonitem.server}}/{{jsonitem.id}}_{{jsonitem.secret}}_n.jpg" />
+      <a href="#/photo/{{photo.id}}">
+        <img ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" />
+      </a>
     </li>
   </ul>
     <pre>
 
-        {{jsonitems | json}}
+        {{photos | json }}
       </pre>
 
 

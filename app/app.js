@@ -17,11 +17,11 @@ angular.module('myApp', [
         templateUrl: 'views/index.html',
         controller: 'MainCtrl'
       }).
-      when('/:photosetId', {
+      when('/photoset/:photosetId', {
         templateUrl: 'views/photoset.html',
         controller: 'PhotosetCtrl'
       }).
-      when('/:photosetId/:photoId', {
+      when('/photo/:photoId', {
         templateUrl: 'views/photo.html',
         controller: 'PhotoCtrl'
       }).
@@ -31,44 +31,26 @@ angular.module('myApp', [
     }
 ]);
 
-
-//.
-//config(['$routeProvider', function($routeProvider) {
-//  $routeProvider.otherwise({redirectTo: '/view1'});
-//}]);
-
 var flickrControllers = angular.module('flickrControllers', []);
-
-flickrControllers.controller('FlickrGetCtrl', ['$scope', 'Images',
-  function($scope, Images) {
-  //  Images.get(function(data){
-  //    $scope.images = data;
-  //  });
-//    $scope.images = Images.query();
-
-  }]);
 
 flickrControllers.controller('MainCtrl', ['$scope', 'JsonService',
   function($scope, JsonService) {
      JsonService.get(function(data){
-        $scope.jsonitems = data.photos.photo;
-
-    });
-//    $scope.flickrlist = $scope.jsonitems.photos;
-//    $scope.jsonimage = JsonImage.get();
-  }]);
-
-flickrControllers.controller('PhotoCtrl', ['$scope', 'JsonImage',
-  function($scope, JsonImage) {
-     JsonImage.get(function(data){
-    //    $scope.jsonitem = data.photo;
+        $scope.photos = data.photos.photo;
     });
   }]);
 
-flickrControllers.controller('PhotosetCtrl', ['$scope', 'JsonImage',
-  function($scope, JsonImage) {
-     JsonImage.get(function(data){
-    //    $scope.jsonitem = data.photo;
+flickrControllers.controller('PhotoCtrl', ['$scope', '$routeParams', 'JsonImage',
+  function($scope, $routeParams, JsonImage) {
+    JsonImage.get({photoId: $routeParams.photoId}, function(data){
+        $scope.photo = data.photo;
+    });
+  }]);
+
+flickrControllers.controller('PhotosetCtrl', ['$scope', '$routeParams', 'JsonSet',
+  function($scope, JsonSet) {
+    JsonImage.get({photosetId: $routeParams.photosetId}, function(data){
+      $scope.photoset = data;
     });
   }]);
 
